@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- font sizes -->
+    <dimen name="app_header">32sp</dimen>
+    <dimen name="image_list_title_size">18sp</dimen>
+    <dimen name="image_details_title_size">21sp</dimen>
+    <dimen name="image_details_size">16sp</dimen>
+    <dimen name="image_title_size">21sp</dimen>
+    <dimen name="image_description_size">14sp</dimen>
+    <dimen name="toolbar_title_size">21sp</dimen>
+
+    <dimen name="divider_width">2dp</dimen>
+
+    <!-- margins -->
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin_medium">8dp</dimen>
+    <dimen name="margin_medium_large">12dp</dimen>
+    <dimen name="margin_large">16dp</dimen>
+
+    <!-- paddings -->
+    <dimen name="padding_small">4dp</dimen>
+    <dimen name="padding_medium_small">6dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_medium_large">12dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+</resources>
