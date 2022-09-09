@@ -1,5 +1,6 @@
 package com.adhiambo.themilkyway.screens.photo
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -40,7 +41,10 @@ class PhotoListActivity : AppCompatActivity() {
                 onClickListener = object : PhotoListAdapter.PhotoClickListener {
                     override fun onPhotoClick(itemPosition: Int) {
                         val photoWithLink = photosList[itemPosition]
-
+                        val intent = Intent(
+                            this@PhotoListActivity,
+                            PhotoDescriptionActivity::class.java
+                        )
                         intent.putExtra("photoLink", photoWithLink.photoLink)
                         intent.putExtra("photoTitle", photoWithLink.photo?.title)
                         intent.putExtra("photoCenter", photoWithLink.photo?.center)
