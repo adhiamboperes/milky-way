@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_photo_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/padding_large"
+    android:paddingTop="@dimen/padding_medium_small"
+    android:paddingBottom="@dimen/padding_medium_small">
+
+    <ImageView
+        android:id="@+id/item_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/placeholder_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_medium_large"
+        app:layout_constraintBottom_toBottomOf="@id/item_photo"
+        app:layout_constraintStart_toStartOf="@id/item_photo">
+
+        <TextView
+            android:id="@+id/item_photo_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:textColor="@color/text_color_title"
+            android:textSize="@dimen/image_list_title_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/item_photo_center"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/placeholder_title" />
+
+        <TextView
+            android:id="@+id/item_photo_center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_large"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/image_details_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="@string/placeholder_center" />
+
+        <View
+            android:id="@+id/item_photo_divider"
+            android:layout_width="@dimen/divider_width"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:background="@color/details_background_color"
+            app:layout_constraintBottom_toBottomOf="@id/item_photo_center"
+            app:layout_constraintEnd_toStartOf="@id/item_photo_date"
+            app:layout_constraintStart_toEndOf="@id/item_photo_center"
+            app:layout_constraintTop_toTopOf="@id/item_photo_center" />
+
+        <TextView
+            android:id="@+id/item_photo_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="@dimen/image_details_size"
+            app:layout_constraintBottom_toBottomOf="@id/item_photo_center"
+            app:layout_constraintStart_toEndOf="@id/item_photo_divider"
+            tools:text="@string/placeholder_date" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
