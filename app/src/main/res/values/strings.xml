@@ -6,4 +6,7 @@
     <string name="placeholder_center">CENTRE</string>
     <string name="placeholder_date">2022\-05\-09</string>
     <string name="placeholder_description">An Image from the Milky Way</string>
+
+    <string name="label_center">Center:</string>
+    <string name="label_date">Date Created:</string>
 </resources>
