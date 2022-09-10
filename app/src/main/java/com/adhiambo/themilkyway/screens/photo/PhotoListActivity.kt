@@ -2,7 +2,9 @@ package com.adhiambo.themilkyway.screens.photo
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
+import android.view.View
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +14,9 @@ import com.adhiambo.themilkyway.models.PhotoWithLink
 
 class PhotoListActivity : AppCompatActivity() {
     private lateinit var photosRecyclerView: RecyclerView
+    private lateinit var photosProgressbar: ProgressBar
+    private lateinit var photosErrorText: TextView
+
     private lateinit var photosViewModel: PhotoViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +25,7 @@ class PhotoListActivity : AppCompatActivity() {
 
         photosViewModel = ViewModelProvider(this)[PhotoViewModel::class.java]
 
+        initializeViews()
         initializeObservers()
     }
 
@@ -29,13 +35,19 @@ class PhotoListActivity : AppCompatActivity() {
             showPhotos(it)
         }
 
-        photosViewModel.isSuccess.observe(this) {
-            Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
+        photosViewModel.isSuccess.observe(this) { success ->
+            photosProgressbar.visibility = View.GONE
+
+            if (!success) {
+                photosErrorText.visibility = View.VISIBLE
+                photosErrorText.text = getString(R.string.error_failed_to_load_photos)
+            } else {
+                photosErrorText.visibility = View.GONE
+            }
         }
     }
 
     private fun showPhotos(photosList: List<PhotoWithLink>) {
-        photosRecyclerView = findViewById(R.id.photo_list)
         photosRecyclerView.apply {
             adapter = PhotoListAdapter(photos = photosList,
                 onClickListener = object : PhotoListAdapter.PhotoClickListener {
@@ -56,5 +68,11 @@ class PhotoListActivity : AppCompatActivity() {
             )
             layoutManager = LinearLayoutManager(this@PhotoListActivity)
         }
+    }
+
+    private fun initializeViews() {
+        photosRecyclerView = findViewById(R.id.photo_list)
+        photosProgressbar = findViewById(R.id.photo_list_progressbar)
+        photosErrorText = findViewById(R.id.photo_list_error_text)
     }
 }

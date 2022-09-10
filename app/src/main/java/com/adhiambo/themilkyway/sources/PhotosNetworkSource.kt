@@ -1,6 +1,7 @@
 package com.adhiambo.themilkyway.sources
 
 import com.adhiambo.themilkyway.common.RestInterface
+import com.adhiambo.themilkyway.config.MilkyWayException
 import com.adhiambo.themilkyway.config.RestClient
 import com.adhiambo.themilkyway.models.PhotoItem
 import io.reactivex.rxjava3.core.Single
@@ -13,10 +14,9 @@ class PhotosNetworkSource {
             val response = restInterface.searchPhotos().execute()
 
             if (!response.isSuccessful) {
-                throw Exception()
+                throw MilkyWayException(msg = "Api call returned an error $response")
             }
             response.body()?.collection?.items
-
         }
     }
 }

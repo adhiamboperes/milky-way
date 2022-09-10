@@ -9,4 +9,6 @@
 
     <string name="label_center">Center:</string>
     <string name="label_date">Date Created:</string>
+
+    <string name="error_failed_to_load_photos">There was an error loading the photos</string>
 </resources>
